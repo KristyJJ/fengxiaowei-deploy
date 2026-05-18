@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <title>风小卫：大风天安全小管家</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div class="app">
+
+    <!-- ✅ 标题区（按你给的完整文案） -->
+    <header class="head">
+      <h1>风小卫：大风天安全小管家</h1>
+      <p class="subtitle">定位：智能决策辅助（给参考建议，不替你做决定）</p>
+      <p class="notice">提示：本工具用于科普学习与安全提醒，遇到紧急情况请听从老师/家长与官方通知。</p>
+    </header>
+
+    <!-- 1️⃣ 输入区 -->
+    <section class="card panel">
+      <label><strong>大风预警颜色：</strong>
+        <select id="level">
+          <option value="blue"selected>蓝色</option>
+          <option value="yellow">黄色</option>
+          <option value="orange">橙色</option>
+          <option value="red">红色</option>
+        </select>
+      </label>
+
+      <label><strong>你在哪里：</strong>
+        <select id="place">
+          <option value="road">路上</option>
+          <option value="school">学校</option>
+          <option value="home">家里</option>
+          <option value="open_area">空旷区域</option>
+          <option value="building_edge">建筑物附近</option>
+        </select>
+      </label>
+
+      <label><strong>你在做什么：</strong>
+        <select id="action">
+          <option value="walk">走路 / 正常外出</option>
+          <option value="cross">过马路</option>
+          <option value="ride">骑自行车 / 滑板车出行</option>
+          <option value="umbrella">撑伞在外行走</option>
+          <option value="near_tree">在树下或广告牌旁停留</option>
+          <option value="window">靠近窗户或阳台查看外面情况</option>
+          <option value="wait">在路边或路口停留等候</option>
+          <option value="outdoor_activity">进行室外活动或玩耍</option>
+        </select>
+      </label>
+
+      <button id="btn">生成建议卡</button>
+    </section>
+
+    <!-- 2️⃣ 输出区（✅ why ? 紧挨交通灯） -->
+    <section class="card">
+      <div id="out">
+        <div class="light-row">
+          <div id="lightText"></div>
+          <!-- ✅ 问号按钮明确放在交通灯右侧 -->
+          <span id="whyTip" class="why-tip hide">?</span>
+        </div>
+
+        <div id="riskTags" class="risk-tags hide"></div>
+      </div>
+    </section>
+
+    <!-- 3️⃣ 依据 -->
+    <section class="card">
+      <button id="basisBtn" class="basis-btn">依据展开</button>
+      <div id="basisDetail" class="basis-detail"></div>
+    </section>
+
+    <!-- 4️⃣ AI 原稿 + 我的优化（左右并排） -->
+    <section class="card ai-block">
+      <div class="ai-col">
+        <h3>AI 原稿（AI 生成）</h3>
+        <textarea
+          id="aiDraft"
+          placeholder="点击“生成建议卡”后，这里将显示 AI 生成的原始判断文本"
+          readonly
+        ></textarea>
+      </div>
+
+      <div class="ai-col">
+        <h3>我的优化</h3>
+        <textarea
+          id="myEdit"
+          placeholder="在这里对 AI 原稿进行人工优化、压缩或重写"
+        ></textarea>
+      </div>
+    </section>
+
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
